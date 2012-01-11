@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="1.7" type="plugin" group="content">
+    <name>Content - ITPSubscribe</name>
+    <author>Todor Iliev</author>
+    <creationDate>January, 2011</creationDate>
+    <copyright>Copyright (C) 2010 Todor Iliev ( ITPrism.com ). All rights reserved.</copyright>
+    <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+    <authorEmail>todor@itprism.com</authorEmail>
+    <authorUrl>http://itprism.com</authorUrl>
+    <version>1.3</version>
+    <description><![CDATA[<p><a href="http://itprism.com/free-joomla-extensions/social-subscription-buttons-module">ITPSubscribe</a> is a plugin that adds FeedBurner form in your articles. It will help you to increase count of your subscribers.</p><p>Invest in the extension improvement and <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor</a> it via SMS or PayPal.</p><p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095">vote for the extension</a> on Joomla! Extensions Directory</p>]]></description>
+    <files>
+        <filename plugin="itpsubscribe">itpsubscribe.php</filename>
+		<filename>style.css</filename>
+        <folder>images</folder>
+    </files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic">
+			
+			   <field name="position" type="list" default="2" label="Position" description="A position where you want to put the form." >
+		           <option value="0">Both</option>
+		           <option value="1">Top</option>
+		           <option value="2">Bottom</option>
+		        </field>
+		        
+		        <field name="showInArticles" type="radio" default="1" label="Show in articles" description="Display RSS form in the view 'article'." >
+		           <option value="0">No</option>
+		           <option value="1">Yes</option>
+		        </field>
+	        
+		        <field name="excludeCats" type="text" default="" size="100"
+		                label="Exclude categories"
+		                description="List with excluded categories divided by comma. Enter categories IDs." />
+						
+		        <field name="excludeArticles" type="text" default="" size="100"
+		                label="Exclude articles"
+		                description="List of excluded articles divided by comma. Enter article IDs." />
+		        <field name="includeArticles" type="text" default="" size="100"
+		                label="Display in articles"
+		                description="Displays RSS form in these articles notwithstanding the exclusion settings. Enter article IDs." />
+	                
+	        <field name="spacer1" type="spacer" class="text" label="############ RSS Icon Settings ############" />
+	        <field name="bg" type="list" default="1" label="Background" description="The background of the div element." >
+	           <option value="1">Background 1</option>
+	           <option value="2">Background 2</option>
+	           <option value="3">Background 3</option>
+	           <option value="4">Background 4</option>
+	           <option value="5">Background 5</option>
+	           <option value="6">Background 6</option>
+	           <option value="7">Background 7</option>
+	           <option value="8">Background 8</option>
+	           <option value="9">Background 9</option>
+	        </field>
+	        
+	        <field name="rss" type="list" default="1" label="RSS Icon" description="A RSS icon." >
+	           <option value="1_64x64">Icon 1</option>
+	           <option value="2_99x96">Icon 2</option>
+	           <option value="3_64x64">Icon 3</option>
+	           <option value="4_60x60">Icon 4</option>
+	           <option value="5_97x78">Icon 5</option>
+	           <option value="6_64x64">Icon 6</option>
+	           <option value="7_60x60">Icon 7</option>
+	           <option value="8_64x64">Icon 8</option>
+	           <option value="9_104x78">Icon 9</option>
+	           <option value="10_50x50">Icon 10</option>
+	           <option value="11_64x64">Icon 11</option>
+	           <option value="12_80x80">Icon 12</option>
+	           <option value="13_64x64">Icon 13</option>
+	           <option value="14_64x64">Icon 14</option>
+	           <option value="15_64x64">Icon 15</option>
+	           <option value="16_64x64">Icon 16</option>
+	           <option value="17_72x72">Icon 17</option>
+	           <option value="18_64x64">Icon 18</option>
+	           <option value="19_62x78">Icon 19</option>
+	           <option value="20_64x64">Icon 20</option>
+	           <option value="21_70x70">Icon 21</option>
+	           <option value="22_64x64">Icon 22</option>
+	           <option value="23_64x64">Icon 23</option>
+	           <option value="24_128x128">Icon 24</option>
+	           <option value="25_65x65">Icon 25</option>
+	           <option value="26_64x64">Icon 26</option>
+	           <option value="27_64x64">Icon 27</option>
+	           <option value="28_64x64">Icon 28</option>
+	           <option value="29_64x64">Icon 29</option>
+	           <option value="30_128x128">Icon 30</option>
+	           <option value="31_64x64">Icon 31</option>
+	           <option value="32_96x96">Icon 32</option>
+	        </field>
+	            
+	        <field name="top" type="text" default="-15" 
+		                label="Top position"
+		                description="A top position of the RSS icon." />
+		        
+	        <field name="left" type="text" default="-40"
+		                label="Left position"
+		                description="A left position of the RSS icon." />
+		                        
+	        <field name="rssLink" type="text" default="" size="100"
+		                label="RSS URL"
+		                description="Your RSS feed url." />
+		                
+		    <field name="spacer2" type="spacer" class="text" label="############ FeedBurner Form Settings ############" />
+		    <field name="displayFeedburner" type="radio" default="1" label="Display FeedBurner Form" description="Select 'Yes' if you want to display the FeedBurner form." >
+               <option value="0">No</option>
+               <option value="1">Yes</option>
+            </field>
+	        <field name="feedburner_uri" size="100" type="text" default="" label="FeedBurner URI" description="Set your feedburner uri string ( last part of the url ). For example : http://feeds.feedburner.com/itprism - The uri is 'itprism'." />
+                
+            <field name="spacer3" type="spacer" class="text" label="############ Custom Form Settings ############" />
+             <field name="displayCustomForm" type="radio" default="1" label="Display Custom Form" description="Select 'Yes' if you want to display the custom form." >
+               <option value="0">No</option>
+               <option value="1">Yes</option>
+            </field>
+            <field name="customHtmlFormCode" type="textarea" default="" label="HTML code" description="Put the HTML code of the additional form, and it will be displyed." cols="50" rows="10" filter="raw" />
+            
+		</fieldset>
+		
+        </fields>
+	</config>
+
+</extension>
