@@ -10,8 +10,8 @@
  * other free or open source software licenses.
  */
 
-// Check to ensure this file is included in Joomla!
-defined('_JEXEC') or die('Restricted access');
+// no direct access
+defined('_JEXEC') or die;
 
 jimport('joomla.plugin.plugin');
 
