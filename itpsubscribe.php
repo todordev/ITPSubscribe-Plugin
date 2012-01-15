@@ -1,7 +1,7 @@
 <?php
 /**
  * @package		 ITPrism Plugins
- * @subpackage	 Social
+ * @subpackage	 ITPSubscribe
  * @copyright    Copyright (C) 2010 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * ITPSubscribe is free software. This version may have been modified pursuant
@@ -29,27 +29,35 @@ class plgContentITPSubscribe extends JPlugin {
     
     }
     
-    /**
-	 * @param	string	The context of the content being passed to the plugin.
-	 * @param	object	The article object.  Note $article->text is also available
-	 * @param	object	The article params
-	 * @param	int		The 'page' number
-	 *
-	 * @return	void
-	 * @since	1.6
-	 */
-	public function onContentPrepare($context, &$article, &$params, $page = 0) {
+    public function onPrepareContent(&$article, &$params, $limitstart){
+        
+        $app =& JFactory::getApplication();
+        /* @var $app JApplication */
 
-        // @todo Remove it when the bug with '$article' fixed
-        if(!isset($article) OR empty($article->id) OR !isset($this->params)) {
-            return "";            
+        if($app->isAdmin()) {
+            return;
+        }
+        
+        $doc   = JFactory::getDocument();
+        /* @var $doc JDocumentHtml */
+        $docType = $doc->getType();
+        
+        // Check document type
+        if(strcmp("html", $docType) != 0){
+            return;
+        }
+        
+        $currentOption = JRequest::getCmd("option");
+        
+        if(($currentOption != "com_content") OR !isset($article) OR empty($article->id) OR !isset($this->params)) {
+            return;            
         }
         
         $content = $this->getContent($article);
         
-        $place = $this->params->get('position');
+        $position = $this->params->get('position');
         
-        switch($place){
+        switch($position){
             
             case 1:
                 $article->text = $content . $article->text;
@@ -69,25 +77,29 @@ class plgContentITPSubscribe extends JPlugin {
     
     private function getContent(&$article){
         
-        $doc   = JFactory::getDocument();
-        /* @var $doc JDocument */
-        $docType = $doc->getType();
-        
-        // Check document type
-        if(strcmp("html", $docType) != 0){
-            return "";
-        }
-        
-        $currentView = JRequest::getWord("view");
-        
         // Check where we are able to show buttons?
         $showInArticles     = $this->params->get('showInArticles');
         $showInCategories   = $this->params->get('showInCategories');
+        $showInSections     = $this->params->get('showInSections');
         $showInFrontPage    = $this->params->get('showInFrontPage');
+        
+        $currentView = JRequest::getWord("view");
         
         /** Check for selected views, which will display the buttons. **/   
         /** If there is a specific set and do not match, return an empty string.**/
         if(!$showInArticles AND (strcmp("article", $currentView) == 0)){
+            return "";
+        }
+        
+        if(!$showInCategories AND (strcmp("category", $currentView) == 0)){
+            return "";
+        }
+        
+        if(!$showInSections AND (strcmp("section", $currentView) == 0)){
+            return "";
+        }
+        
+        if(!$showInFrontPage AND (strcmp("frontpage", $currentView) == 0)){
             return "";
         }
         
@@ -97,6 +109,13 @@ class plgContentITPSubscribe extends JPlugin {
             $excludedCats = explode(',', $excludedCats);
         }
         settype($excludedCats, 'array');
+        
+        // Excluded Sections
+        $excludeSections = $this->params->get('excludeSections');
+        if(!empty($excludeSections)){
+            $excludeSections = explode(',', $excludeSections);
+        }
+        settype($excludeSections, 'array');
         
         // Excluded Articles
         $excludeArticles = $this->params->get('excludeArticles');
@@ -115,7 +134,7 @@ class plgContentITPSubscribe extends JPlugin {
         // Check for included and exluded views
         if(!in_array($article->id, $includedArticles)) {
             // Check exluded places
-            if(in_array($article->catid, $excludedCats) OR in_array($article->id, $excludeArticles)){
+            if(in_array($article->catid, $excludedCats) OR in_array($article->sectionid, $excludeSections) OR in_array($article->id, $excludeArticles)){
                 return '';
             }
         }
@@ -126,8 +145,8 @@ class plgContentITPSubscribe extends JPlugin {
         $format  = explode("_", $iconType);
         $size    = explode("x", $format[1]);
 
-        $bg  = JURI::root() . "plugins/content/itpsubscribe/images/bg" .$this->params->get("bg") .".png";
-        $rss = JURI::root() . "plugins/content/itpsubscribe/images/rss" .$format[0].".png";
+        $bg  = JURI::root() . "plugins/content/itpsubscribe/bg" .$this->params->get("bg") .".png";
+        $rss = JURI::root() . "plugins/content/itpsubscribe/rss" .$format[0].".png";
         $top = $this->params->get("top");
         $left = $this->params->get("left");
         $inputWidth = $this->params->get("iw");
@@ -157,6 +176,8 @@ class plgContentITPSubscribe extends JPlugin {
   
 }
 ";
+        $doc   = JFactory::getDocument();
+        /* @var $doc JDocumentHtml */
         
         $doc->addStyleDeclaration($css);
         
@@ -187,7 +208,7 @@ $form .= '<form onsubmit="window.open(\'http://feedburner.google.com/fb/a/mailve
         <div class="itp-subscribe">
             <div class="itp-subs"><a href="' . $rssLink . '" class="itp-rss-icon" /></a>
                 <div id="itps-text" ><p>Subscribe via <a href="' . $rssLink . '"  />RSS</a> or Email:</p>
-                	'. $form .'
+                '. $form .'
                 </div>
             </div>
         </div>
