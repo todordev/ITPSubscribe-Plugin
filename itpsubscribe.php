@@ -20,7 +20,6 @@ jimport('joomla.plugin.plugin');
  *
  * @package		ITPrism Plugins
  * @subpackage	Social
- * @since 		1.5
  */
 class plgContentITPSubscribe extends JPlugin {
     
@@ -30,35 +29,38 @@ class plgContentITPSubscribe extends JPlugin {
     
     }
     
-    public function onContentPrepare($context, &$article, &$params, $limitstart) {
+    /**
+	 * @param	string	The context of the content being passed to the plugin.
+	 * @param	object	The article object.  Note $article->text is also available
+	 * @param	object	The article params
+	 * @param	int		The 'page' number
+	 *
+	 * @return	void
+	 * @since	1.6
+	 */
+	public function onContentPrepare($context, &$article, &$params, $page = 0) {
 
         // @todo Remove it when the bug with '$article' fixed
         if(!isset($article) OR empty($article->id) OR !isset($this->params)) {
             return "";            
         }
         
-        $ad = $this->getContent($article);
+        $content = $this->getContent($article);
         
         $place = $this->params->get('position');
         
         switch($place){
             
             case 1:
-                
-                $article->text = $ad . $article->text;
-                
+                $article->text = $content . $article->text;
                 break;
             
             case 2:
-                
-                $article->text = $article->text . $ad;
-                
+                $article->text = $article->text . $content;
                 break;
             
             default:
-                
-                $article->text = $ad . $article->text . $ad;
-                
+                $article->text = $content . $article->text . $content;
                 break;
         }
         
@@ -88,15 +90,6 @@ class plgContentITPSubscribe extends JPlugin {
         if(!$showInArticles AND (strcmp("article", $currentView) == 0)){
             return "";
         }
-        /*
-        if(!$showInCategories AND (strcmp("category", $currentView) == 0)){
-            return "";
-        }
-        
-        if(!$showInFrontPage AND (strcmp("featured", $currentView) == 0)){
-            return "";
-        }
-        */
         
         // Excluded Categories
         $excludedCats = $this->params->get('excludeCats');
@@ -133,8 +126,8 @@ class plgContentITPSubscribe extends JPlugin {
         $format  = explode("_", $iconType);
         $size    = explode("x", $format[1]);
 
-        $bg  = JURI::base() . "plugins/content/itpsubscribe/images/bg" .$this->params->get("bg") .".png";
-        $rss = JURI::base() . "plugins/content/itpsubscribe/images/rss" .$format[0].".png";
+        $bg  = JURI::root() . "plugins/content/itpsubscribe/images/bg" .$this->params->get("bg") .".png";
+        $rss = JURI::root() . "plugins/content/itpsubscribe/images/rss" .$format[0].".png";
         $top = $this->params->get("top");
         $left = $this->params->get("left");
         $inputWidth = $this->params->get("iw");
@@ -167,7 +160,7 @@ class plgContentITPSubscribe extends JPlugin {
         
         $doc->addStyleDeclaration($css);
         
-        $style  = JURI::base() . "plugins/content/itpsubscribe/style.css";
+        $style  = JURI::root() . "plugins/content/itpsubscribe/style.css";
         $doc->addStyleSheet($style);
         
         /* Let's show the content */
