@@ -8,7 +8,7 @@
     <authorEmail>todor@itprism.com</authorEmail>
     <authorUrl>http://itprism.com</authorUrl>
     <version>1.3</version>
-    <description><![CDATA[<p><a href="http://itprism.com/free-joomla-extensions/social-subscription-buttons-module">ITPSubscribe</a> is a plugin that adds FeedBurner form in your articles. It will help you to increase count of your subscribers.</p><p>Invest in the extension improvement and <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor</a> it via SMS or PayPal.</p><p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095">vote for the extension</a> on Joomla! Extensions Directory</p>]]></description>
+    <description><![CDATA[<p><a href="http://itprism.com/free-joomla-extensions/social-subscription-buttons-module">ITPSubscribe</a> is a plugin that adds subscribtion form in your articles. It will help you to increase count of your subscribers.</p><p>Invest in the extension improvement and <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor</a> it via SMS or PayPal.</p><p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095">vote for the extension</a> on Joomla! Extensions Directory</p>]]></description>
     <files>
         <filename plugin="itpsubscribe">itpsubscribe.php</filename>
 		<filename>style.css</filename>
