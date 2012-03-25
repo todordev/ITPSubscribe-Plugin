@@ -7,52 +7,30 @@
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
     <authorEmail>todor@itprism.com</authorEmail>
     <authorUrl>http://itprism.com</authorUrl>
-    <version>1.3</version>
-    <description><![CDATA[<p><a href="http://itprism.com/free-joomla-extensions/social-subscription-buttons-module">ITPSubscribe</a> is a plugin that adds subscribtion form in your articles. It will help you to increase count of your subscribers.</p><p>Invest in the extension improvement and <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor</a> it via SMS or PayPal.</p><p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095">vote for the extension</a> on Joomla! Extensions Directory</p>]]></description>
+    <version>1.4</version>
+    <description><![CDATA[
+    <p><a href="http://itprism.com/free-joomla-extensions/social-subscription-buttons-module" target="_blank">ITPSubscribe</a> plugin adds subscribtion form in your articles. It will help you to increase number of your subscribers.</p>
+    <p>Invest in the extension improvement and <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor</a> it via SMS or PayPal.</p>
+    <p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive information about updates and new ITPrism extensions.</p>
+    <p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
+    ]]></description>
+    
+    <languages>
+        <language tag="en-GB">en-GB.plg_itpsubscribe.ini</language>
+    </languages>
+    
     <files>
         <filename plugin="itpsubscribe">itpsubscribe.php</filename>
         <folder>itpsubscribe</folder>
     </files>
+    
     <params>
-        <param name="showInArticles" type="radio" default="1" label="Show In Articles" description="Display RSS form in the view 'article'." >
-           <option value="0">No</option>
-           <option value="1">Yes</option>
-        </param>
-        
-        <param name="showInCategories" type="radio" default="0" label="Show In Categories" description="Display RSS form in the view 'category'." >
-           <option value="0">No</option>
-           <option value="1">Yes</option>
-        </param>
-        
-        <param name="showInSections" type="radio" default="0" label="Show In Sections" description="Display RSS form in the view 'section'." >
-           <option value="0">No</option>
-           <option value="1">Yes</option>
-        </param>
-        
-        <param name="showInFrontPage" type="radio" default="0" label="Show In FrontPage" description="Display RSS form in the view 'frontpage'." >
-           <option value="0">No</option>
-           <option value="1">Yes</option>
-        </param>
         
         <param name="position" type="list" default="2" label="Position" description="A position where you want to put the form." >
            <option value="0">Both</option>
            <option value="1">Top</option>
            <option value="2">Bottom</option>
         </param>
-        
-        <param name="excludeSections" type="text" default="" size="100"
-                label="Exclude sections"
-                description="List with excluded sections divided by comma. Enter sections IDs." />
-        <param name="excludeCats" type="text" default="" size="100"
-                label="Exclude categories"
-                description="List with excluded categories divided by comma. Enter categories IDs." />
-        <param name="excludeArticles" type="text" default="" size="100"
-                label="Exclude articles"
-                description="List of excluded articles divided by comma. Enter article IDs." />
-                
-        <param name="includeArticles" type="text" default="" size="100"
-                label="Display in articles"
-                description="Displays RSS form in these articles notwithstanding the exclusion settings. Enter articles IDs." />
         
         <param name="@spacer1" type="spacer" default="############ RSS Icon Settings ############" />        
         <param name="bg" type="list" default="1" label="Background" description="The background of the div element." >
@@ -100,34 +78,85 @@
            <option value="30_128x128">Icon 30</option>
            <option value="31_64x64">Icon 31</option>
            <option value="32_96x96">Icon 32</option>
+           <option value="33_96x96">Icon 33</option>
+           <option value="34_96x96">Icon 34</option>
+           <option value="35_64x64">Icon 35</option>
+           <option value="36_64x64">Icon 36</option>
+           <option value="37_96x96">Icon 37</option>
+           <option value="38_96x96">Icon 38</option>
+           <option value="39_96x96">Icon 39</option>
+           <option value="40_96x96">Icon 40</option>
         </param>
             
-        <param name="top" type="text" default="-15" 
-                label="Top position"
-                description="A top position of the RSS icon." />
+        <param name="top" type="text" default="-15" label="Top position" description="A top position of the RSS icon." />
         
-        <param name="left" type="text" default="-40"
-                label="Left position"
-                description="A left position of the RSS icon." />
+        <param name="left" type="text" default="-40" label="Left position" description="A left position of the RSS icon." />
                         
-        <param name="rssLink" type="text" default="" size="100"
-                label="RSS URL"
-                description="Your RSS feed url." />
+        <param name="rssLink" type="text" default="" size="80" label="RSS URL" description="Your RSS feed url." />
                 
          <param name="@spacer2" type="spacer" default="############ FeedBurner Form Settings ############" />
          <param name="displayFeedburner" type="radio" default="1" label="Display FeedBurner Form" description="Select 'Yes' if you want to display the FeedBurner form." >
             <option value="0">No</option>
             <option value="1">Yes</option>
          </param>        
-        <param name="feedburner_uri" size="100" type="text" default="" label="FeedBurner URI" description="Set your feedburner uri string ( last part of the url ). For example : http://feeds.feedburner.com/itprism - The uri is 'itprism'." />
-        
+        <param name="feedburner_uri" size="80" type="text" default="" label="FeedBurner URI" description="Set your feedburner uri string ( last part of the url ). For example : http://feeds.feedburner.com/itprism - The uri is 'itprism'." />
+        <param name="feedburner_l" type="list" default="en_US" label="Language" description="Form language">
+             <option value="en_US">English</option>
+             <option value="es_ES">Spanish</option>
+             <option value="fr_FR">French</option>
+             <option value="de_DE">German</option>
+             <option value="pt_BR">Portuguese</option>
+             <option value="ru_RU">Russian</option>
+             <option value="ja_JP">Japanese</option>
+         </param>  
+            
         <param name="@spacer3" type="spacer" default="############ Custom Form Settings ############" />
-        <field name="displayCustomForm" type="radio" default="1" label="Display Custom Form" description="Select 'Yes' if you want to display the custom form." >
+        <param name="displayCustomForm" type="radio" default="1" label="Display Custom Form" description="Select 'Yes' if you want to display the custom form." >
           <option value="0">No</option>
           <option value="1">Yes</option>
-       </field>
-       <field name="customHtmlFormCode" type="textarea" default="" label="HTML code" description="Put the HTML code of the additional form, and it will be displyed." cols="50" rows="10" filter="raw" />
+        </param>
+        <param name="customHtmlFormCode" type="textarea" default="" label="HTML code" description="Put the HTML code of the additional form, and it will be displyed." cols="50" rows="10" filter="raw" />
               
 	</params>
 
+    <params group="advanced">
+        <param name="spacer4" type="spacer" default="############# JOOMLA CONTENT ( com_content ) SETTINGS #############" />
+        <param name="showInArticles" type="radio" default="1" label="Show in articles" description="Display plugin content in view 'article'." >
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+        <param name="excludeArticles" type="text" default="" size="80" label="Exclude articles" description="List of excluded articles divided by comma. You must enter the IDs of articles." />
+        <param name="excludeCats" type="text" default="" size="80" label="Exclude categories" description="List with excluded categories divided by comma. You must enter the IDs of categories." />
+        <param name="includeArticles" type="text" default="" size="80" label="Display in these articles" description="Displays the plugin content in these articles notwithstanding the exclusion settings. You must enter the IDs of articles." />
+        
+        <param name="spacer5" type="spacer" default="############# K2 ( com_k2 ) SETTINGS #############" />
+        <param name="k2DisplayInArticles" type="radio" default="1" label="Display in articles" description="Setting this to true and the plugin content will be displayed on article page." >
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+        
+        <param name="spacer6" type="spacer" default="############# VIRTUEMART ( com_virtuemart ) SETTINGS #############" />
+        <param name="vmDisplayInDetails" type="radio" default="1" label="Display in details" description="Setting this to true and the plugin content will be displayed on details page." >
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+        
+        <param name="spacer7" type="spacer" default="############# JEVENTS ( com_jevents ) SETTINGS #############" />
+        <param name="jeDisplayInEvents" type="radio" default="1" label="Display in events" description="Display plugin content on event details page." >
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+        
+        <param name="spacer8" type="spacer" default="############# EASY BLOG ( com_easyblog ) SETTINGS #############" />
+        <param name="ebDisplayInEntry" type="radio" default="1" label="Display in entry" description="Setting this to true and the plugin content will be displayed on entry page." >
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+        
+        <param name="spacer9" type="spacer" default="############# ITPSubscribe SETTINGS #############" />
+        <param name="loadCss" type="radio" default="1" label="Load style.css" description="The style.css is a file that contains position and some styles of the plugin. You can disable the file loading if you have your own styles.">
+           <option value="0">No</option>
+           <option value="1">Yes</option>
+        </param>
+    </params>
 </install>
