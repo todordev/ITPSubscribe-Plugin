@@ -109,7 +109,7 @@ class plgContentITPSubscribe extends JPlugin {
         }
         
         /*** Loading language file ***/
-        JPlugin::loadLanguage('plg_itpsubscribe', JPATH_SITE);
+        JPlugin::loadLanguage('plg_itpsubscribe', JPATH_ADMINISTRATOR);
         
         $content = $this->getContent($article);
         $position = $this->params->get('position');
