@@ -1,22 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<extension version="2.5" type="plugin" group="content">
+<extension version="2.5" type="plugin" group="content" method="upgrade">
     <name>Content - ITPSubscribe</name>
     <author>Todor Iliev</author>
-    <creationDate>January, 2011</creationDate>
     <copyright>Copyright (C) 2010 Todor Iliev ( ITPrism.com ). All rights reserved.</copyright>
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
     <authorEmail>todor@itprism.com</authorEmail>
     <authorUrl>http://itprism.com</authorUrl>
-    <version>1.4</version>
-    <description><![CDATA[
-    <p><a href="http://itprism.com/free-joomla-extensions/social-marketing-seo/profile-newsletter-subscription" target="_blank">ITPSubscribe</a> plugin adds subscribtion form in your articles. It will help you to increase number of your subscribers.</p>
-    <p>Invest in the extension and help for its improvement. You can <a href="http://itprism.com/sponsorship" title="Sponsoring" target="_blank">sponsor the extension via SMS or PayPal</a>.</p>
-    <p><a href="http://itprism.com/" target="_blank">Subscribe for the newsletter</a> to receive information about updates and new ITPrism extensions.</p>
-    <p>Please, <a href="http://extensions.joomla.org/extensions/social-web/social-bookmarking/14095" target="_blank">vote for the extension</a> on Joomla! Extensions Directory</p>
-    ]]></description>
+    <version>1.5</version>
+    <creationDate>30 October, 2012</creationDate>
+    <description>PLG_CONTENT_ITPSUBSCRIBE_DESC</description>
     
-    <languages>
-        <language tag="en-GB">en-GB.plg_itpsubscribe.ini</language>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_content_itpsubscribe.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_content_itpsubscribe.sys.ini</language>
     </languages>
     
     <files>
@@ -26,18 +22,20 @@
         <folder>images</folder>
     </files>
     
+    <help url="PLG_CONTENT_ITPSUBSCRIBE_HELP_URL"/>
+    
     <config>
 		<fields name="params">
 			<fieldset name="basic">
 			
-			   <field name="position" type="list" default="2" label="Position" description="A position where you want to put the form." >
-		           <option value="0">Both</option>
-		           <option value="1">Top</option>
-		           <option value="2">Bottom</option>
+			   <field name="position" type="list" default="2" label="PLG_CONTENT_ITPSUBSCRIBE_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_POSITION_DESC" >
+		           <option value="0">PLG_CONTENT_ITPSUBSCRIBE_BOTH</option>
+		           <option value="1">PLG_CONTENT_ITPSUBSCRIBE_TOP</option>
+		           <option value="2">PLG_CONTENT_ITPSUBSCRIBE_BOTTOM</option>
 		        </field>
 		        
-	        <field name="spacer1" type="spacer" class="text" label="############ RSS Icon Settings ############" />
-	        <field name="bg" type="list" default="1" label="Background" description="The background of the div element." >
+	        <field name="spacer1" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_SETTINGS" />
+	        <field name="bg" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_BACKGROUND" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_BACKGROUND_DESC" >
 	           <option value="1">Background 1</option>
 	           <option value="2">Background 2</option>
 	           <option value="3">Background 3</option>
@@ -49,7 +47,7 @@
 	           <option value="9">Background 9</option>
 	        </field>
 	        
-	        <field name="rss" type="list" default="1" label="RSS Icon" description="A RSS icon." >
+	        <field name="rss" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON_DESC" >
 	           <option value="1_64x64">Icon 1</option>
 	           <option value="2_99x96">Icon 2</option>
 	           <option value="3_64x64">Icon 3</option>
@@ -92,70 +90,103 @@
 	           <option value="40_96x96">Icon 40</option>
 	        </field>
 	            
-	        <field name="top" type="text" default="-15" label="Top position" description="A top position of the RSS icon." />
-	        <field name="left" type="text" default="-40" label="Left position" description="A left position of the RSS icon." />
-	        <field name="rssLink" type="text" default="" size="80" label="RSS URL" description="Your RSS feed url." />
+	        <field name="top" type="text" default="-15" label="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" />
+	        <field name="left" type="text" default="-40" label="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" />
+	        <field name="rssLink" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" />
 		                
-		    <field name="spacer2" type="spacer" class="text" label="############ FeedBurner Form Settings ############" />
-		    <field name="displayFeedburner" type="radio" default="1" label="Display FeedBurner Form" description="Select 'Yes' if you want to display the FeedBurner form." >
-               <option value="0">No</option>
-               <option value="1">Yes</option>
+		    <field name="spacer2" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_FORM_SETTINGS" />
+		    <field name="displayFeedburner" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM_DESC" >
+               <option value="0">JNO</option>
+               <option value="1">JYES</option>
             </field>
-	        <field name="feedburner_uri" size="80" type="text" default="" label="FeedBurner URI" description="Set your feedburner uri string ( last part of the url ). For example : http://feeds.feedburner.com/itprism - The uri is 'itprism'." />
-            <field name="feedburner_l" type="list" default="en_US" label="Language" description="Form language">
-                <option value="en_US">English</option>
-                <option value="es_ES">Spanish</option>
-                <option value="fr_FR">French</option>
-                <option value="de_DE">German</option>
-                <option value="pt_BR">Portuguese</option>
-                <option value="ru_RU">Russian</option>
-                <option value="ja_JP">Japanese</option>
+	        <field name="feedburner_uri" size="80" type="text" default="" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI" description="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI_DESC" />
+            <field name="feedburner_l" type="list" default="en_US" label="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE" description="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE_DESC">
+                <option value="en_US">PLG_CONTENT_ITPSUBSCRIBE_ENGLISH</option>
+                <option value="es_ES">PLG_CONTENT_ITPSUBSCRIBE_SPANISH</option>
+                <option value="fr_FR">PLG_CONTENT_ITPSUBSCRIBE_FRENCH</option>
+                <option value="de_DE">PLG_CONTENT_ITPSUBSCRIBE_GERMAN</option>
+                <option value="pt_BR">PLG_CONTENT_ITPSUBSCRIBE_PORTUGUESE</option>
+                <option value="ru_RU">PLG_CONTENT_ITPSUBSCRIBE_RUSSIAN</option>
+                <option value="ja_JP">PLG_CONTENT_ITPSUBSCRIBE_JAPANESE</option>
             </field>    
-                
-            <field name="spacer3" type="spacer" class="text" label="############ Custom Form Settings ############" />
-             <field name="displayCustomForm" type="radio" default="1" label="Display Custom Form" description="Select 'Yes' if you want to display the custom form." >
-               <option value="0">No</option>
-               <option value="1">Yes</option>
-            </field>
-            <field name="customHtmlFormCode" type="textarea" default="" label="HTML code" description="Put the HTML code of the additional form, and it will be displyed." cols="50" rows="10" filter="raw" />
-            
 		  </fieldset>
+		  
+		  <fieldset name="custom_form" label="PLG_CONTENT_ITPSUBSCRIBE_CUSTOM_FORM_SETTINGS">
+            <field name="displayCustomForm" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM_DESC" >
+               <option value="0">JNO</option>
+               <option value="1">JYES</option>
+            </field>
+            <field name="customHtmlFormCode" type="textarea" default="" label="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE" description="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE_DESC" cols="70" rows="15" filter="raw" />
+	            
+		  </fieldset>
+		  
 		  <fieldset name="advanced">
-                <field name="spacer4" type="spacer" class="text" label="############# JOOMLA CONTENT ( com_content ) SETTINGS #############" />
-                <field name="showInArticles" type="radio" default="1" label="Show in articles" description="Display plugin content in view 'article'." >
-                   <option value="0">No</option>
-                   <option value="1">Yes</option>
-                </field>
-                <field name="excludeArticles" type="text" default="" size="80" label="Exclude articles" description="List of excluded articles divided by comma. You must enter the IDs of articles." />
-                <field name="excludeCats" type="text" default="" size="80" label="Exclude categories" description="List with excluded categories divided by comma. You must enter the IDs of categories." />
-                <field name="includeArticles" type="text" default="" size="80" label="Display in these articles" description="Displays the plugin content in these articles notwithstanding the exclusion settings. You must enter the IDs of articles." />
-                
-                <field name="spacer5" type="spacer" class="text" label="############# K2 ( com_k2 ) SETTINGS #############" />
-                <field name="k2DisplayInArticles" type="radio" default="1" label="Display in articles" description="Setting this to true and the plugin content will be displayed on article page." >
-                   <option value="0">No</option>
-                   <option value="1">Yes</option>
+                <field name="spacer3" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMLA_CONTENT" />
+                <field name="showInArticles" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_ARTICLE" description="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_ARTICLE_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
                 </field>
                 
-                <field name="spacer6" type="spacer" class="text" label="############# VIRTUEMART ( com_virtuemart ) SETTINGS #############" />
-                <field name="vmDisplayInDetails" type="radio" default="1" label="Display in details" description="Setting this to true and the plugin content will be displayed on details page." >
-                   <option value="0">No</option>
-                   <option value="1">Yes</option>
+                <field name="excludeArticles" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES" description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES_DESC" />
+                <field name="excludeCats" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES" description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES_DESC" />
+                <field name="includeArticles" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES_DESC" />
+                
+                <field name="spacer4" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_K2_SETTINGS" />
+                <field name="k2DisplayInArticles" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES" description="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
                 </field>
                 
-                <field name="spacer7" type="spacer" class="text" label="############# JEVENTS ( com_jevents ) SETTINGS #############" />
-                <field name="jeDisplayInEvents" type="radio" default="1" label="Display in events" description="Display plugin content on event details page." >
-                   <option value="0">No</option>
-                   <option value="1">Yes</option>
+                <field name="spacer5" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_VIRTUEMART_SETTINGS" />
+                <field name="vmDisplayInDetails" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_DETAILS_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
                 </field>
                 
-                <field name="spacer8" type="spacer" class="text" label="############# EASY BLOG ( com_easyblog ) SETTINGS #############" />
-                <field name="ebDisplayInEntry" type="radio" default="1" label="Display in entry" description="Setting this to true and the plugin content will be displayed on entry page." >
-                   <option value="0">No</option>
-                   <option value="1">Yes</option>
+                <field name="spacer6" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JEVENTS_SETTINGS" />
+                <field name="jeDisplayInEvents" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
                 </field>
                 
-                <field name="spacer9" type="spacer" class="text" label="############# ITPSubscribe SETTINGS #############" />
-                <field name="loadCss" type="radio" default="1" label="Load style.css" description="The style.css is a file that contains position and some styles of the plugin. You can disable the file loading if you have your own styles.">
+                <field name="spacer7" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_EASYBLOG_SETTINGS" />
+                <field name="ebDisplayInEntry" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ENTRY" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ENTRY_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer8" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_MYBLOG_SETTINGS" />
+                <field name="mbDisplay" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_POST" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_POST_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer9" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_VIPPORTFOLIO_SETTINGS" />
+                <field name="vipportfolio_lineal" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LINEAL" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LINEAL_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer10" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_ZOO_SETTINGS" />
+                <field name="zoo_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_ZOO_DISPLAY_IN_ARTICLE" description="PLG_CONTENT_ITPSUBSCRIBE_ZOO_DISPLAY_IN_ARTICLE_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer11" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_SETTINGS" />
+                <field name="joomshopping_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_DISPLAY_IN_DETAILS_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer12" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_SETTINGS" />
+                <field name="hikashop_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_DISPLAY_IN_DETAILS_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="spacer13" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_ADVANCED_SETTINGS" />
+                <field name="loadCss" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_LOAD_STYLE_CSS" description="PLG_CONTENT_ITPSUBSCRIBE_LOAD_STYLE_CSS_DESC">
                    <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
