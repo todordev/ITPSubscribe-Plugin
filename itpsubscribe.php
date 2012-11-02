@@ -2,6 +2,7 @@
 /**
  * @package		 ITPrism Plugins
  * @subpackage	 ITPSubscribe
+ * @author       Todor Iliev
  * @copyright    Copyright (C) 2010 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
  * ITPSubscribe is free software. This version may have been modified pursuant
@@ -84,6 +85,7 @@ class plgContentITPSubscribe extends JPlugin {
         // Load language file
         $this->loadLanguage();
         
+        // Generate content
         $content  = $this->getContent($article);
         $position = $this->params->get('position');
         
@@ -354,7 +356,7 @@ class plgContentITPSubscribe extends JPlugin {
             return true;
         }
         
-	    // Verify the option for displaying in layout "lineal"
+	    // Check for enabled option for that extensions
         $mbDisplay     = $this->params->get('mbDisplay', 0);
         if(!$mbDisplay){
             return true;
@@ -462,7 +464,7 @@ class plgContentITPSubscribe extends JPlugin {
            return true;
         }
         
-	    // Verify the option for displaying in view "view"
+	    // Check for enabled functionality for that extension
         $displayInDetails     = $this->params->get('joomshopping_display', 0);
         if(!$displayInDetails OR !isset($article->product_id)){
             return true;
@@ -484,12 +486,12 @@ class plgContentITPSubscribe extends JPlugin {
            return true;
         }
         
-		// Display content only in the view "productdetails"
+		// Display content only in the view "product"
         if(strcmp("product", $this->currentView) != 0){
             return true;
         }
         
-	    // Verify the option for displaying in view "text"
+	    // Check for enabled functionality for that extension
         $displayInDetails     = $this->params->get('hikashop_display', 0);
         if(!$displayInDetails){
             return true;
@@ -551,9 +553,9 @@ class plgContentITPSubscribe extends JPlugin {
         if($this->params->get("displayFeedburner")) {
 $form .= '<form onsubmit="window.open(\'http://feedburner.google.com/fb/a/mailverify?uri=' .$this->params->get("feedburner_uri") .'\', \'popupwindow\', \'scrollbars=yes,width=550,height=520\');return true" target="popupwindow" method="post" action="http://feedburner.google.com/fb/a/mailverify">
     <input type="text" name="email" class="itps-em" />
-    <input type="hidden" name="uri" value="' .$this->params->get("feedburner_uri") .'">
-    <input type="hidden" value="'. $this->params->get("feedburner_l", "en_GB") .'" name="loc">
-    <input type="submit" value="'. JText::_("PLG_CONTENT_ITPSUBSCRIBE_SUBMIT") . '" class="button">
+    <input type="hidden" name="uri" value="' .$this->params->get("feedburner_uri") .'" />
+    <input type="hidden" value="'. $this->params->get("feedburner_l", "en_GB") .'" name="loc" />
+    <input type="submit" value="'. JText::_("PLG_CONTENT_ITPSUBSCRIBE_SUBMIT") . '" class="button" />
 </form>';
         }
         
@@ -565,7 +567,7 @@ $form .= '<form onsubmit="window.open(\'http://feedburner.google.com/fb/a/mailve
         // Generate the HTML code 
         return '
         <div class="itp-subscribe">
-            <div class="itp-subs"><a href="' . $rssLink . '" class="itp-rss-icon" /></a>
+            <div class="itp-subs"><a href="' . $rssLink . '" class="itp-rss-icon" ></a>
                 <div class="itps-text" >'. JText::sprintf("PLG_CONTENT_ITPSUBSCRIBE_SUBSCRIBE_VIA", $rssLink) . '
                 	'. $form .'
                 </div>
