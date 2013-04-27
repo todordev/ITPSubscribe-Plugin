@@ -6,8 +6,8 @@
     <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
     <authorEmail>todor@itprism.com</authorEmail>
     <authorUrl>http://itprism.com</authorUrl>
-    <version>1.6</version>
-    <creationDate>2 November, 2012</creationDate>
+    <version>1.7</version>
+    <creationDate>27 April, 2013</creationDate>
     <description>PLG_CONTENT_ITPSUBSCRIBE_DESC</description>
     
     <languages folder="language">
@@ -34,164 +34,228 @@
 		           <option value="2">PLG_CONTENT_ITPSUBSCRIBE_BOTTOM</option>
 		        </field>
 		        
-	        <field name="spacer1" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_SETTINGS" />
-	        <field name="bg" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_BACKGROUND" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_BACKGROUND_DESC" >
-	           <option value="1">Background 1</option>
-	           <option value="2">Background 2</option>
-	           <option value="3">Background 3</option>
-	           <option value="4">Background 4</option>
-	           <option value="5">Background 5</option>
-	           <option value="6">Background 6</option>
-	           <option value="7">Background 7</option>
-	           <option value="8">Background 8</option>
-	           <option value="9">Background 9</option>
-	        </field>
-	        
-	        <field name="rss" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON_DESC" >
-	           <option value="1_64x64">Icon 1</option>
-	           <option value="2_99x96">Icon 2</option>
-	           <option value="3_64x64">Icon 3</option>
-	           <option value="4_60x60">Icon 4</option>
-	           <option value="5_97x78">Icon 5</option>
-	           <option value="6_64x64">Icon 6</option>
-	           <option value="7_60x60">Icon 7</option>
-	           <option value="8_64x64">Icon 8</option>
-	           <option value="9_104x78">Icon 9</option>
-	           <option value="10_50x50">Icon 10</option>
-	           <option value="11_64x64">Icon 11</option>
-	           <option value="12_80x80">Icon 12</option>
-	           <option value="13_64x64">Icon 13</option>
-	           <option value="14_64x64">Icon 14</option>
-	           <option value="15_64x64">Icon 15</option>
-	           <option value="16_64x64">Icon 16</option>
-	           <option value="17_72x72">Icon 17</option>
-	           <option value="18_64x64">Icon 18</option>
-	           <option value="19_62x78">Icon 19</option>
-	           <option value="20_64x64">Icon 20</option>
-	           <option value="21_70x70">Icon 21</option>
-	           <option value="22_64x64">Icon 22</option>
-	           <option value="23_64x64">Icon 23</option>
-	           <option value="24_128x128">Icon 24</option>
-	           <option value="25_65x65">Icon 25</option>
-	           <option value="26_64x64">Icon 26</option>
-	           <option value="27_64x64">Icon 27</option>
-	           <option value="28_64x64">Icon 28</option>
-	           <option value="29_64x64">Icon 29</option>
-	           <option value="30_128x128">Icon 30</option>
-	           <option value="31_64x64">Icon 31</option>
-	           <option value="32_96x96">Icon 32</option>
-	           <option value="33_96x96">Icon 33</option>
-	           <option value="34_96x96">Icon 34</option>
-	           <option value="35_64x64">Icon 35</option>
-	           <option value="36_64x64">Icon 36</option>
-	           <option value="37_96x96">Icon 37</option>
-	           <option value="38_96x96">Icon 38</option>
-	           <option value="39_96x96">Icon 39</option>
-	           <option value="40_96x96">Icon 40</option>
-	        </field>
-	            
-	        <field name="top" type="text" default="-15" label="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" />
-	        <field name="left" type="text" default="-40" label="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" />
-	        <field name="rssLink" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" />
-		                
-		    <field name="spacer2" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_FORM_SETTINGS" />
-		    <field name="displayFeedburner" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM_DESC" >
-               <option value="0">JNO</option>
-               <option value="1">JYES</option>
-            </field>
-	        <field name="feedburner_uri" size="80" type="text" default="" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI" description="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI_DESC" />
-            <field name="feedburner_l" type="list" default="en_US" label="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE" description="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE_DESC">
-                <option value="en_US">PLG_CONTENT_ITPSUBSCRIBE_ENGLISH</option>
-                <option value="es_ES">PLG_CONTENT_ITPSUBSCRIBE_SPANISH</option>
-                <option value="fr_FR">PLG_CONTENT_ITPSUBSCRIBE_FRENCH</option>
-                <option value="de_DE">PLG_CONTENT_ITPSUBSCRIBE_GERMAN</option>
-                <option value="pt_BR">PLG_CONTENT_ITPSUBSCRIBE_PORTUGUESE</option>
-                <option value="ru_RU">PLG_CONTENT_ITPSUBSCRIBE_RUSSIAN</option>
-                <option value="ja_JP">PLG_CONTENT_ITPSUBSCRIBE_JAPANESE</option>
-            </field>    
+		        <field name="spacer1" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_SETTINGS" />
+		        <field name="bg" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_BACKGROUND" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_BACKGROUND_DESC" >
+		           <option value="1">Background 1</option>
+		           <option value="2">Background 2</option>
+		           <option value="3">Background 3</option>
+		           <option value="4">Background 4</option>
+		           <option value="5">Background 5</option>
+		           <option value="6">Background 6</option>
+		           <option value="7">Background 7</option>
+		           <option value="8">Background 8</option>
+		           <option value="9">Background 9</option>
+		        </field>
+		        
+		        <field name="rss" type="list" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_ICON_DESC" >
+		           <option value="1_64x64">Icon 1</option>
+		           <option value="2_99x96">Icon 2</option>
+		           <option value="3_64x64">Icon 3</option>
+		           <option value="4_60x60">Icon 4</option>
+		           <option value="5_97x78">Icon 5</option>
+		           <option value="6_64x64">Icon 6</option>
+		           <option value="7_60x60">Icon 7</option>
+		           <option value="8_64x64">Icon 8</option>
+		           <option value="9_104x78">Icon 9</option>
+		           <option value="10_50x50">Icon 10</option>
+		           <option value="11_64x64">Icon 11</option>
+		           <option value="12_80x80">Icon 12</option>
+		           <option value="13_64x64">Icon 13</option>
+		           <option value="14_64x64">Icon 14</option>
+		           <option value="15_64x64">Icon 15</option>
+		           <option value="16_64x64">Icon 16</option>
+		           <option value="17_72x72">Icon 17</option>
+		           <option value="18_64x64">Icon 18</option>
+		           <option value="19_62x78">Icon 19</option>
+		           <option value="20_64x64">Icon 20</option>
+		           <option value="21_70x70">Icon 21</option>
+		           <option value="22_64x64">Icon 22</option>
+		           <option value="23_64x64">Icon 23</option>
+		           <option value="24_128x128">Icon 24</option>
+		           <option value="25_65x65">Icon 25</option>
+		           <option value="26_64x64">Icon 26</option>
+		           <option value="27_64x64">Icon 27</option>
+		           <option value="28_64x64">Icon 28</option>
+		           <option value="29_64x64">Icon 29</option>
+		           <option value="30_128x128">Icon 30</option>
+		           <option value="31_64x64">Icon 31</option>
+		           <option value="32_96x96">Icon 32</option>
+		           <option value="33_96x96">Icon 33</option>
+		           <option value="34_96x96">Icon 34</option>
+		           <option value="35_64x64">Icon 35</option>
+		           <option value="36_64x64">Icon 36</option>
+		           <option value="37_96x96">Icon 37</option>
+		           <option value="38_96x96">Icon 38</option>
+		           <option value="39_96x96">Icon 39</option>
+		           <option value="40_96x96">Icon 40</option>
+		           <option value="41_96x96">Icon 41</option>
+		           <option value="42_64x64">Icon 42</option>
+		           <option value="43_96x96">Icon 43</option>
+		           <option value="44_64x64">Icon 44</option>
+		           <option value="45_64x64">Icon 45</option>
+		        </field>
+		            
+		        <field name="top" type="text" default="-15" label="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_TOP_POSITION" />
+		        <field name="left" type="text" default="-40" label="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" description="PLG_CONTENT_ITPSUBSCRIBE_LEFT_POSITION" />
+		        <field name="rssLink" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" description="PLG_CONTENT_ITPSUBSCRIBE_RSS_URL" />
+			                
+			    <field name="spacer2" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_FORM_SETTINGS" />
+			    <field name="displayFeedburner" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_FEEDBURNER_FORM_DESC" >
+	               <option value="0">JNO</option>
+	               <option value="1">JYES</option>
+	            </field>
+		        <field name="feedburner_uri" size="80" type="text" default="" label="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI" description="PLG_CONTENT_ITPSUBSCRIBE_FEEDBURNER_URI_DESC" />
+	            <field name="feedburner_l" type="list" default="en_US" label="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE" description="PLG_CONTENT_ITPSUBSCRIBE_LANGUAGE_DESC">
+	                <option value="en_US">PLG_CONTENT_ITPSUBSCRIBE_ENGLISH</option>
+	                <option value="es_ES">PLG_CONTENT_ITPSUBSCRIBE_SPANISH</option>
+	                <option value="fr_FR">PLG_CONTENT_ITPSUBSCRIBE_FRENCH</option>
+	                <option value="de_DE">PLG_CONTENT_ITPSUBSCRIBE_GERMAN</option>
+	                <option value="pt_BR">PLG_CONTENT_ITPSUBSCRIBE_PORTUGUESE</option>
+	                <option value="ru_RU">PLG_CONTENT_ITPSUBSCRIBE_RUSSIAN</option>
+	                <option value="ja_JP">PLG_CONTENT_ITPSUBSCRIBE_JAPANESE</option>
+	            </field>    
 		  </fieldset>
 		  
 		  <fieldset name="custom_form" label="PLG_CONTENT_ITPSUBSCRIBE_CUSTOM_FORM_SETTINGS">
-            <field name="displayCustomForm" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM_DESC" >
-               <option value="0">JNO</option>
-               <option value="1">JYES</option>
-            </field>
-            <field name="customHtmlFormCode" type="textarea" default="" label="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE" description="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE_DESC" cols="70" rows="15" filter="raw" />
+	            <field name="displayCustomForm" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_CUSTOM_FORM_DESC" >
+	               <option value="0">JNO</option>
+	               <option value="1">JYES</option>
+	            </field>
+	            <field name="customHtmlFormCode" type="textarea" default="" label="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE" description="PLG_CONTENT_ITPSUBSCRIBE_HTML_CODE_DESC" cols="70" rows="15" filter="raw" />
 	            
 		  </fieldset>
 		  
-		  <fieldset name="advanced">
-                <field name="spacer3" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMLA_CONTENT" />
+		  <fieldset name="joomla_content_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMLA_CONTENT" description="PLG_CONTENT_ITPSUBSCRIBE_JOOMLA_CONTENT_DESC">
                 <field name="showInArticles" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_ARTICLE" description="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_ARTICLE_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="excludeArticles" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES" description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES_DESC" />
-                <field name="excludeCats" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES" description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES_DESC" />
-                <field name="includeArticles" type="text" default="" size="80" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES_DESC" />
-                
-                <field name="spacer4" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_K2_SETTINGS" />
-                <field name="k2DisplayInArticles" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES" description="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES_DESC" >
+                <field name="showInCategories" type="radio" default="0" label="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_CATEGORIES" description="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_CATEGORIES_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
                 
-                <field name="spacer5" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_VIRTUEMART_SETTINGS" />
+                <field name="showInFeatured" type="radio" default="0" label="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_FEATURE" description="PLG_CONTENT_ITPSUBSCRIBE_SHOW_IN_FEATURE_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="excludeArticles" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES_DESC" />
+                        
+                <field name="excludeCats" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES_DESC" />
+                        
+                <field name="includeArticles" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES_DESC" />
+            </fieldset>
+            
+            <fieldset name="k2_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_K2_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_K2_SETTINGS_DESC">
+            
+                 <field name="k2DisplayInArticles" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES" description="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_ARITCLES_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="k2DisplayInItemlist" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_CATEGORIES" description="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_CATEGORIES_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                
+                <field name="k2_exclude_articles" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_ARTICLES_DESC" />
+                        
+                <field name="k2_exclude_cats" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_EXCLUDE_CATEGORIES_DESC" />
+                        
+                <field name="k2_include_articles" type="text" default="" size="80"
+                    label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES"
+                    description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ARITCLES_DESC" />
+                    
+            </fieldset>
+            
+            <fieldset name="virtuemart_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_VIRTUEMART_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_VIRTUEMART_SETTINGS_DESC">
                 <field name="vmDisplayInDetails" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_DETAILS_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer6" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JEVENTS_SETTINGS" />
-                <field name="jeDisplayInEvents" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT_DESC" >
+                    
+            </fieldset>
+            
+            <fieldset name="jevents_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_JEVENTS_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_JEVENTS_SETTINGS_DESC">
+                 <field name="jeDisplayInEvents" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_JEVENT_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer7" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_EASYBLOG_SETTINGS" />
+            </fieldset>
+            
+            <fieldset name="easyblog_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_EASYBLOG_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_EASYBLOG_SETTINGS_DESC">
                 <field name="ebDisplayInEntry" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ENTRY" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_ENTRY_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer8" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_MYBLOG_SETTINGS" />
+                <field name="ebDisplayInCategories" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_CATEGORIES" description="PLG_CONTENT_ITPSUBSCRIBE_K2_DISPLAY_IN_CATEGORIES_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                <field name="ebDisplayInTags" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_TAGS" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_TAGS_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+                <field name="ebDisplayInLatest" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LATEST" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LATEST_DESC" >
+                   <option value="0">JNO</option>
+                   <option value="1">JYES</option>
+                </field>
+            </fieldset>
+            
+            <fieldset name="myblog_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_MYBLOG_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_MYBLOG_SETTINGS_DESC">
                 <field name="mbDisplay" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_POST" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_POST_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer9" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_VIPPORTFOLIO_SETTINGS" />
+            </fieldset>
+            
+            <fieldset name="vipportfolio_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_VIPPORTFOLIO_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_VIPPORTFOLIO_SETTINGS_DESC">
                 <field name="vipportfolio_lineal" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LINEAL" description="PLG_CONTENT_ITPSUBSCRIBE_DISPLAY_IN_LINEAL_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer10" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_ZOO_SETTINGS" />
+            </fieldset>
+            
+            <fieldset name="zoo_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_ZOO_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_ZOO_SETTINGS_DESC">
                 <field name="zoo_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_ZOO_DISPLAY_IN_ARTICLE" description="PLG_CONTENT_ITPSUBSCRIBE_ZOO_DISPLAY_IN_ARTICLE_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer11" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_SETTINGS" />
+            </fieldset>
+            
+            <fieldset name="joomshopping_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_SETTINGS_DESC">
                 <field name="joomshopping_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_JOOMSHOPPING_DISPLAY_IN_DETAILS_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer12" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_SETTINGS" />
+            </fieldset>
+            
+            <fieldset name="hikashop_advanced" label="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_SETTINGS" description="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_SETTINGS_DESC">
                 <field name="hikashop_display" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_DISPLAY_IN_DETAILS" description="PLG_CONTENT_ITPSUBSCRIBE_HIKASHOP_DISPLAY_IN_DETAILS_DESC" >
                    <option value="0">JNO</option>
                    <option value="1">JYES</option>
                 </field>
-                
-                <field name="spacer13" type="spacer" class="text" label="PLG_CONTENT_ITPSUBSCRIBE_ADVANCED_SETTINGS" />
+            </fieldset>
+            
+		  <fieldset name="advanced">
                 <field name="loadCss" type="radio" default="1" label="PLG_CONTENT_ITPSUBSCRIBE_LOAD_STYLE_CSS" description="PLG_CONTENT_ITPSUBSCRIBE_LOAD_STYLE_CSS_DESC">
                    <option value="0">JNO</option>
                     <option value="1">JYES</option>
                 </field>
-                  
-            </fieldset>
+          </fieldset>
+          
+          
        </fields>
 	</config>
 

@@ -1,10 +1,16 @@
 ITPSubscribe Plugin for Joomla! 
 ==========================
-( Version 1.6 )
+( Version 1.7 )
 --------------------------
 
 Changelog
 ---------
+
+v1.7
+-----
+* Added RSS icons
+* Improved
+
 v1.6 
 * Improved HTML validation
 
