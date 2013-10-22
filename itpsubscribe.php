@@ -3,12 +3,8 @@
  * @package		 ITPrism Plugins
  * @subpackage	 ITPSubscribe
  * @author       Todor Iliev
- * @copyright    Copyright (C) 2010 Todor Iliev <todor@itprism.com>. All rights reserved.
+ * @copyright    Copyright (C) 2013 Todor Iliev <todor@itprism.com>. All rights reserved.
  * @license      http://www.gnu.org/copyleft/gpl.html GNU/GPL
- * ITPSubscribe is free software. This version may have been modified pursuant
- * to the GNU General Public License, and as distributed it includes or
- * is derivative of works licensed under the GNU General Public License or
- * other free or open source software licenses.
  */
 
 // no direct access
@@ -39,60 +35,137 @@ class plgContentITPSubscribe extends JPlugin {
 	 */
 	public function onContentPrepare($context, &$article, &$params, $page = 0) {
 
-		if (!$article OR !isset($this->params)) { return; };            
+	    if (!$article OR !isset($this->params)) { return; }
         
-        $app = JFactory::getApplication();
-        /** @var $app JSite **/
-
-        if($app->isAdmin()) {
+        // Check for correct trigger
+        if(strcmp("on_content_prepare", $this->params->get("trigger_place")) != 0) {
             return;
         }
-        
-        $doc     = JFactory::getDocument();
-        /**  @var $doc JDocumentHtml **/
-        
-        // Check document type
-        $docType = $doc->getType();
-        if(strcmp("html", $docType) != 0){
-            return;
-        }
-       
-        // Get request data
-        $this->currentOption  = $app->input->getCmd("option");
-        $this->currentView    = $app->input->getCmd("view");
-        $this->currentTask    = $app->input->getCmd("task");
-        
-	    if($this->isRestricted($article, $context, $params)) {
-        	return;
-        }
-        
-        if($this->params->get("loadCss")) {
-            $doc->addStyleSheet(JURI::root() . "plugins/content/itpsubscribe/style.css");
-        }
-        
-        // Load language file
-        $this->loadLanguage();
         
         // Generate content
-        $content  = $this->getContent($article);
+        $content      = $this->processGenerating($context, $article, $params, $page = 0);
+        
+        // If there is no result, return void.
+        if(is_null($content)) { return; }
+        
         $position = $this->params->get('position');
         
         switch($position){
             
-            case 1:
+            case 1: // Top
                 $article->text = $content . $article->text;
                 break;
             
-            case 2:
+            case 2: // Bottom
                 $article->text = $article->text . $content;
                 break;
             
-            default:
+            default: // Both
                 $article->text = $content . $article->text . $content;
                 break;
         }
         
         return;
+    }
+    
+    /**
+     * Add the form into the article before content.
+     *
+     * @param	string	The context of the content being passed to the plugin.
+     * @param	object	The article object.  Note $article->text is also available
+     * @param	object	The article params
+     * @param	int		The 'page' number
+     *
+     * @return string
+     */
+    public function onContentBeforeDisplay($context, &$article, &$params, $page = 0) {
+    
+        // Check for correct trigger
+        if(strcmp("on_content_before_display", $this->params->get("trigger_place")) != 0) {
+            return "";
+        }
+    
+        // Generate content
+        $content = $this->processGenerating($context, $article, $params, $page = 0);
+    
+        // If there is no result, return empty string.
+        if(is_null($content)) { return ""; }
+    
+        return $content;
+    }
+    
+    /**
+     * Add the form into the article after content.
+     *
+     * @param	string	The context of the content being passed to the plugin.
+     * @param	object	The article object.  Note $article->text is also available
+     * @param	object	The article params
+     * @param	int		The 'page' number
+     *
+     * @return string
+     */
+    public function onContentAfterDisplay($context, &$article, &$params, $page = 0) {
+        
+        // Check for correct trigger
+        if(strcmp("on_content_after_display", $this->params->get("trigger_place")) != 0) {
+            return "";
+        }
+    
+        // Generate content
+        $content = $this->processGenerating($context, $article, $params, $page = 0);
+    
+        // If there is no result, return empty string.
+        if(is_null($content)) { return ""; }
+    
+        return $content;
+    }
+    
+    /**
+     * Execute the process of buttons generating.
+     *
+     * @param string    $context
+     * @param object    $article
+     * @param JRegistry $params
+     * @param number    $page
+     * @return NULL|string
+     */
+    private function processGenerating($context, &$article, &$params, $page = 0) {
+    
+        $app = JFactory::getApplication();
+        /** @var $app JSite **/
+    
+        if($app->isAdmin()) {
+            return null;
+        }
+    
+        $doc     = JFactory::getDocument();
+        /**  @var $doc JDocumentHtml **/
+    
+        // Check document type
+        $docType = $doc->getType();
+        if(strcmp("html", $docType) != 0){
+            return null;
+        }
+    
+        // Get request data
+        $this->currentOption  = $app->input->getCmd("option");
+        $this->currentView    = $app->input->getCmd("view");
+        $this->currentTask    = $app->input->getCmd("task");
+    
+        if($this->isRestricted($article, $context, $params)) {
+            return null;
+        }
+    
+        if($this->params->get("loadCss")) {
+            $doc->addStyleSheet(JURI::root() . "plugins/content/itpsubscribe/style.css");
+        }
+    
+        // Load language file
+        $this->loadLanguage();
+    
+        // Generate and return content
+        return $this->getContent($article, $context);
+    
     }
     
     private function isRestricted($article, $context, $params) {
@@ -101,19 +174,9 @@ class plgContentITPSubscribe extends JPlugin {
     	
     	switch($this->currentOption) {
             case "com_content":
-            	
-            	// It's an implementation of "com_myblog"
-            	// I don't know why but $option contains "com_content" for a value
-            	// I hope it will be fixed in the future versions of "com_myblog"
-            	if(strcmp($context, "com_myblog") != 0) {
-                    $result = $this->isContentRestricted($article, $context);
-	                break;
-            	} 
+                $result = $this->isContentRestricted($article, $context);
+            break;
 	                
-            case "com_myblog":
-                $result = $this->isMyBlogRestricted($article, $context);
-                break;
-                    
             case "com_k2":
                 $result = $this->isK2Restricted($article, $context, $params);
                 break;
@@ -145,6 +208,10 @@ class plgContentITPSubscribe extends JPlugin {
             case "com_hikashop":
                 $result = $this->isHikaShopRestricted($article, $context);
                 break; 
+                
+            case "com_vipquotes":
+                $result = $this->isVipQuotesRestricted($article, $context);
+                break;
                 
             default:
                 $result = true;
@@ -342,31 +409,6 @@ class plgContentITPSubscribe extends JPlugin {
     
 	/**
      * 
-     * It's a method that verify restriction for the component "com_myblog"
-     * @param object $article
-     * @param string $context
-     */
-	private function isMyBlogRestricted(&$article, $context) {
-
-        // Check for correct context
-        if(strpos($context, "myblog") === false) {
-           return true;
-        }
-        
-	    // Display content only in the task "view"
-        if(strcmp("view", $this->currentTask) != 0){
-            return true;
-        }
-        
-        if(!$this->params->get('mbDisplay', 0)){
-            return true;
-        }
-        
-        return false;
-    }
-    
-	/**
-     * 
      * It's a method that verify restriction for the component "com_vipportfolio"
      * @param object $article
      * @param string $context
@@ -517,6 +559,37 @@ class plgContentITPSubscribe extends JPlugin {
         return false;
     }
     
+    /**
+     * Do verification for Vip Quotes extension. Is it restricted?
+     *
+     * @param ojbect $article
+     * @param string $context
+     */
+    private function isVipQuotesRestricted(&$article, $context) {
+    
+        // Check for correct context
+        if(strpos($context, "com_vipquotes") === false) {
+            return true;
+        }
+    
+        // Display only in view 'quote'
+        $allowedViews = array("author", "quote");
+        if(!in_array($this->currentView, $allowedViews)) {
+            return true;
+        }
+    
+        $displayOnViewQuote     = $this->params->get('vipquotes_display_quote', 0);
+        if(!$displayOnViewQuote){
+            return true;
+        }
+    
+        $displayOnViewAuthor     = $this->params->get('vipquotes_display_author', 0);
+        if(!$displayOnViewAuthor){
+            return true;
+        }
+    
+        return false;
+    }
     
     private function getContent(&$article){
         
