@@ -1,10 +1,15 @@
 ITPSubscribe Plugin for Joomla! 
 ==========================
-( Version 1.8 )
+( Version 1.9 )
 - - -
 
 Changelog
 ---------
+
+###v1.9
+* Removed Zoo, VipQuotes, Vip Portfolio and Easy Blog.
+* Added support for EShop (com_eshop).
+* Improved.
 
 ###v1.8
 * Removed MyBlog.

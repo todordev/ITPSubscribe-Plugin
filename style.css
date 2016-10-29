@@ -31,3 +31,20 @@
   width: 150px;
   border: thin solid #000000;
 }
+
+.itp-subs {
+    background-position: left;
+    background-repeat: repeat-x;
+    width: 95%;
+    height: 40px;
+    float: right;
+    position: relative;
+}
+
+.itp-subscribe-plugin a.itp-rss-icon{
+    background-position: left;
+    background-repeat: no-repeat;
+    float:left;
+    display:block;
+    position: absolute;
+}
